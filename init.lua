@@ -480,6 +480,10 @@ require('lazy').setup({
       --  - capabilities (table): Override fields in capabilities. Can be used to disable certain LSP features.
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
+
+      local mason_registry = require 'mason-registry'
+      local vue_language_server_path = mason_registry.get_package('vue-language-server'):get_install_path()
+
       local servers = {
         -- clangd = {},
         -- gopls = {},
@@ -491,8 +495,40 @@ require('lazy').setup({
         --    https://github.com/pmizio/typescript-tools.nvim
         --
         -- But for many setups, the LSP (`tsserver`) will work just fine
-        tsserver = {},
-        --
+
+        intelephense = {},
+        marksman = {},
+
+        -- Non-Hybrid mode
+        -- https://github.com/vuejs/language-tools?tab=readme-ov-file#community-integration
+
+        tsserver = {
+          init_options = {
+            plugins = {
+              {
+                name = '@vue/typescript-plugin',
+                location = vue_language_server_path,
+                languages = { 'vue' },
+              },
+            },
+          },
+          -- filetypes = {
+          --   'javascript',
+          --   'javascriptreact',
+          --   'javascript.jsx',
+          --   'typescript',
+          --   'typescriptreact',
+          --   'typescript.tsx',
+          --   'vue'
+          -- },
+        },
+        volar = {
+          init_options = {
+            vue = {
+              hybridMode = false,
+            },
+          },
+        },
 
         lua_ls = {
           -- cmd = {...},
@@ -522,7 +558,9 @@ require('lazy').setup({
       -- for you, so that they are available from within Neovim.
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
-        'stylua', -- Used to format Lua code
+        'stylua',
+        'prettier',
+        'prettierd',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -633,25 +671,23 @@ require('lazy').setup({
         --
         -- No, but seriously. Please read `:help ins-completion`, it is really good!
         mapping = cmp.mapping.preset.insert {
-          -- Select the [n]ext item
-          ['<C-n>'] = cmp.mapping.select_next_item(),
-          -- Select the [p]revious item
-          ['<C-p>'] = cmp.mapping.select_prev_item(),
-
           -- Scroll the documentation window [b]ack / [f]orward
           ['<C-b>'] = cmp.mapping.scroll_docs(-4),
           ['<C-f>'] = cmp.mapping.scroll_docs(4),
 
+          -- Select the [n]ext or [p]revious item
+          -- ['<C-n>'] = cmp.mapping.select_next_item(),
+          -- ['<C-p>'] = cmp.mapping.select_prev_item(),
+
           -- Accept ([y]es) the completion.
           --  This will auto-import if your LSP supports it.
           --  This will expand snippets if the LSP sent a snippet.
-          ['<C-y>'] = cmp.mapping.confirm { select = true },
+          -- ['<C-y>'] = cmp.mapping.confirm { select = true },
 
-          -- If you prefer more traditional completion keymaps,
-          -- you can uncomment the following lines
-          --['<CR>'] = cmp.mapping.confirm { select = true },
-          --['<Tab>'] = cmp.mapping.select_next_item(),
-          --['<S-Tab>'] = cmp.mapping.select_prev_item(),
+          -- If you prefer more traditional completion keymaps, you can uncomment the following lines
+          ['<CR>'] = cmp.mapping.confirm { select = true },
+          ['<Tab>'] = cmp.mapping.select_next_item(),
+          ['<S-Tab>'] = cmp.mapping.select_prev_item(),
 
           -- Manually trigger a completion from nvim-cmp.
           --  Generally you don't need this, because nvim-cmp will display

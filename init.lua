@@ -341,6 +341,16 @@ require('lazy').setup({
       vim.keymap.set('n', '<leader>sn', function()
         builtin.find_files { cwd = vim.fn.stdpath 'config' }
       end, { desc = '[S]earch [N]eovim files' })
+
+      -- Search in Git root
+      vim.keymap.set('n', '<leader>sp', function()
+        local opts = {}
+        opts.cwd = vim.fn.systemlist('git rev-parse --show-toplevel')[1]
+        if vim.v.shell_error ~= 0 then
+          opts.cwd = vim.lsp.get_active_clients()[1].config.root_dir
+        end
+        builtin.find_files(opts)
+      end, { desc = '[S]earch [P]roject files' })
     end,
   },
 

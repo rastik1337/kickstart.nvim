@@ -80,6 +80,10 @@ vim.g.netrw_keepdir = 0
 
 vim.opt.termguicolors = true
 
+if os.getenv 'WSL_DISTRO_NAME' then
+  vim.g.netrw_browsex_viewer = 'wslview'
+end
+
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 

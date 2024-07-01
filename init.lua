@@ -360,13 +360,20 @@ require('lazy').setup({
       end, { desc = '[S]earch [N]eovim files' })
 
       -- Search in Git root
+      local is_inside_work_tree = {}
       vim.keymap.set('n', '<leader>sp', function()
         local opts = {}
-        opts.cwd = vim.fn.systemlist('git rev-parse --show-toplevel')[1]
-        if vim.v.shell_error ~= 0 then
-          opts.cwd = vim.lsp.get_active_clients()[1].config.root_dir
+        local cwd = vim.fn.getcwd()
+        if is_inside_work_tree[cwd] == nil then
+          vim.fn.system 'git rev-parse --is-inside-work-tree'
+          is_inside_work_tree[cwd] = vim.v.shell_error == 0
         end
-        builtin.find_files(opts)
+
+        if is_inside_work_tree[cwd] then
+          builtin.git_files(opts)
+        else
+          builtin.find_files(opts)
+        end
       end, { desc = '[S]earch [P]roject files' })
     end,
   },

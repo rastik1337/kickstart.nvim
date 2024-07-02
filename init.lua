@@ -551,9 +551,6 @@ require('lazy').setup({
         --
         -- But for many setups, the LSP (`tsserver`) will work just fine
 
-        intelephense = {},
-        marksman = {},
-
         -- Non-Hybrid mode
         -- https://github.com/vuejs/language-tools?tab=readme-ov-file#community-integration
 
@@ -587,6 +584,8 @@ require('lazy').setup({
         --     },
         --   },
         -- },
+        intelephense = {},
+        marksman = {},
         tailwindcss = {},
         lua_ls = {
           -- cmd = {...},
@@ -611,6 +610,8 @@ require('lazy').setup({
             },
           },
         },
+        taplo = {},
+        markdown_oxide = {},
       }
 
       -- Ensure the servers and tools above are installed
@@ -631,6 +632,11 @@ require('lazy').setup({
         {
           'volar',
           version = '1.8.0-patch.1',
+          auto_update = false,
+        },
+        {
+          'eslint',
+          version = '4.8.0',
           auto_update = false,
         },
       })

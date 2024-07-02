@@ -602,6 +602,15 @@ require('lazy').setup({
             },
           },
         },
+        jsonls = {
+          capabilities = capabilities,
+          settings = {
+            json = {
+              schemas = require('schemastore').json.schemas(),
+              validate = { enable = true },
+            },
+          },
+        },
       }
 
       -- Ensure the servers and tools above are installed
@@ -716,6 +725,17 @@ require('lazy').setup({
       --  into multiple repos for maintenance purposes.
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-path',
+
+      -- Autocompletion only for npm dependencies
+      -- {
+      --   'David-Kunz/cmp-npm',
+      --   dependencies = { 'nvim-lua/plenary.nvim' },
+      --   ft = 'json',
+      --   lazy = false,
+      --   config = function()
+      --     require('cmp-npm').setup {}
+      --   end,
+      -- },
     },
     config = function()
       -- See `:help cmp`
@@ -785,6 +805,7 @@ require('lazy').setup({
           { name = 'nvim_lsp' },
           { name = 'luasnip' },
           { name = 'path' },
+          -- { name = 'npm', keyword_length = 4 },
         },
       }
     end,

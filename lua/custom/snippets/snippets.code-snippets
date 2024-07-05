@@ -1,0 +1,42 @@
+{
+  "VUE_SCRIPT_SETUP": {
+    "prefix": "script",
+    "body": ["<script setup lang=\"ts\">", "</script>\n"],
+    "description": "Vue3 Script Setup"
+  },
+  "VUE_SCRIPT_SETUP_PROPS": {
+    "prefix": "sprops",
+    "body": ["<script setup lang=\"ts\">", "defineProps<{}>();", "</script>\n"],
+    "description": "Vue3 Script Setup With Props"
+  },
+  "VUE_TEMPLATE": {
+    "prefix": "template",
+    "body": ["<template>", "</template>"],
+    "description": "Vue3 Template"
+  },
+  "VUE_PROPS": {
+    "prefix": "props",
+    "body": ["defineProps<{}>();"],
+    "description": "Vue3 Define Props"
+  },
+  "VUE_CONST_PROPS": {
+    "prefix": "cprops",
+    "body": ["const props = defineProps<{}>();"],
+    "description": "Vue3 Const Define Props"
+  },
+  "VUE_EMITS": {
+    "prefix": "emits",
+    "body": ["defineEmits<{(e: 'event'): void}>();"],
+    "description": "Vue3 Define Emits"
+  },
+  "VUE_EMITS_CONST": {
+    "prefix": "cemits",
+    "body": ["const emit = defineEmits<{(e: 'event'): void}>();"],
+    "description": "Vue3 Const Define Emits"
+  },
+  "JS_TERNARY": {
+    "prefix": "tn",
+    "body": ["condition ? '' : ''"],
+    "description": "Javascript Ternary"
+  }
+}

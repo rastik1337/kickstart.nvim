@@ -796,6 +796,7 @@ require('lazy').setup({
       -- See `:help cmp`
       local cmp = require 'cmp'
       local luasnip = require 'luasnip'
+      require('luasnip.loaders.from_vscode').load_standalone { path = './lua/custom/snippets/snippets.code-snippets' }
       luasnip.config.setup {}
 
       cmp.setup {

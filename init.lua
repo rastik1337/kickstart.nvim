@@ -290,6 +290,7 @@ require('lazy').setup({
       -- do as well as how to actually do it!
 
       local actions = require 'telescope.actions'
+      local action_layout = require 'telescope.actions.layout'
 
       -- [[ Configure Telescope ]]
       -- See `:help telescope` and `:help telescope.setup()`
@@ -301,7 +302,17 @@ require('lazy').setup({
           -- mappings = {
           -- i = { ['<c-enter>'] = 'to_fuzzy_refine' },
           -- },
-          preview = false,
+          preview = {
+            hide_on_startup = true,
+          },
+          mappings = {
+            i = {
+              ['<M-p>'] = action_layout.toggle_preview,
+            },
+            n = {
+              ['<M-p>'] = action_layout.toggle_preview,
+            },
+          },
         },
         pickers = {
           buffers = {

@@ -91,7 +91,7 @@ vim.keymap.set('n', '<leader>g', '<cmd>Git<CR>')
 vim.opt.hlsearch = true
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 -- vim.keymap.set('n', '<leader>e', '<cmd>Explore<CR>')
-vim.keymap.set('n', '<leader>e', '<cmd>Oil --float<CR>')
+vim.keymap.set('n', '<leader>e', '<cmd>Oil --float<CR>', { desc = 'Open Oil in float' })
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagnostic message' })

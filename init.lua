@@ -80,7 +80,7 @@ vim.opt.termguicolors = true
 if os.getenv 'WSL_DISTRO_NAME' then
   vim.g.netrw_browsex_viewer = 'wslview'
 end
-vim.keymap.set('n', 'gx', ':sil !wslview <c-r><c-a><cr>', { silent = true })
+-- vim.keymap.set('n', 'gx', ':sil !wslview <c-r><c-a><cr>', { silent = true })
 
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`

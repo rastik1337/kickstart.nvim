@@ -4,6 +4,9 @@ local filetypes = {
   'python',
   'php',
   'vue',
+  'json',
+  'css',
+  'lua'
 }
 
 local function format()

@@ -648,6 +648,8 @@ require('lazy').setup({
           -- },
         },
         -- volar = {
+        --   auto_update = false,
+        --   version = '2.0.29',
         --   init_options = {
         --     vue = {
         --       hybridMode = false,
@@ -656,7 +658,15 @@ require('lazy').setup({
         -- },
         intelephense = {},
         marksman = {},
-        tailwindcss = {},
+        tailwindcss = {
+          -- settings = {
+          --   tailwindCSS = {
+          --     experimental = {
+          --       classRegex = { 'Styles\\s*(?::\\s*[^=]+)?\\s*=\\s*([^;]*);' },
+          --     },
+          --   },
+          -- },
+        },
         lua_ls = {
           -- cmd = {...},
           -- filetypes = { ...},
@@ -701,7 +711,8 @@ require('lazy').setup({
         'prettierd',
         {
           'volar',
-          version = '1.8.0-patch.1',
+          -- version = '1.8.0-patch.1',
+          version = '1.8.27',
           auto_update = false,
         },
         {

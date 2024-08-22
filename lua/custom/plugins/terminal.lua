@@ -1,5 +1,19 @@
 return {
-  'rebelot/terminal.nvim',
+  'akinsho/toggleterm.nvim',
+  version = '*',
+  config = function()
+    require('toggleterm').setup {
+      open_mapping = '<leader>to',
+      direction = 'float',
+      insert_mappings = false,
+      terminal_mappings = false,
+      hide_numbers = false,
+      float_opts = {
+        border = 'curved',
+      },
+    }
+  end,
+  --[[ 'rebelot/terminal.nvim',
   config = function()
     require('terminal').setup {
       layout = { open_cmd = 'float' },
@@ -21,5 +35,5 @@ return {
     -- vim.keymap.set("n", "<leader>th", mappings.move({ open_cmd = "belowright new" }))
     -- vim.keymap.set("n", "<leader>tH", mappings.move({ open_cmd = "botright new" }))
     -- vim.keymap.set("n", "<leader>tf", mappings.move({ open_cmd = "float" }))
-  end,
+  end, ]]
 }

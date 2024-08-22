@@ -597,16 +597,20 @@ require('lazy').setup({
           --   'typescript.tsx',
           --   'vue',
           -- },
+          filetypes = { 'none' },
         },
-        -- volar = {
-        --   auto_update = false,
-        --   version = '2.0.29',
-        --   init_options = {
-        --     vue = {
-        --       hybridMode = false,
-        --     },
-        --   },
-        -- },
+        volar = {
+          --   auto_update = false,
+          --   version = '2.0.29',
+          version = '1.8.27',
+          auto_update = false,
+          filetypes = { 'typescript', 'javascript', 'typescriptreact', 'javascriptreact', 'vue' },
+          --   init_options = {
+          --     vue = {
+          --       hybridMode = false,
+          --     },
+          --   },
+        },
         intelephense = {},
         marksman = {},
         tailwindcss = {
@@ -660,12 +664,6 @@ require('lazy').setup({
         'stylua',
         'prettier',
         'prettierd',
-        {
-          'volar',
-          -- version = '1.8.0-patch.1',
-          version = '1.8.27',
-          auto_update = false,
-        },
         {
           'eslint',
           version = '4.8.0',

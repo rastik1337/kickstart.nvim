@@ -73,6 +73,7 @@ vim.opt.scrolloff = 10
 
 -- Netrw options
 vim.g.netrw_banner = 0
+vim.g.netrw_keepdir = 0
 
 vim.opt.termguicolors = true
 
@@ -86,8 +87,8 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagnostic message' })
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next [D]iagnostic message' })
-vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rror messages' })
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+vim.keymap.set('n', '<leader>de', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rror messages' })
+-- vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
@@ -534,8 +535,9 @@ require('lazy').setup({
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
 
-      local mason_registry = require 'mason-registry'
-      local vue_language_server_path = mason_registry.get_package('vue-language-server'):get_install_path()
+      -- local mason_registry = require 'mason-registry'
+      -- local vue_language_server_path = mason_registry.get_package('vue-language-server'):get_install_path() .. '/node_modules/@vue/language-server'
+      -- local tsdk = require('mason-registry').get_package('typescript-language-server'):get_install_path() .. '/node_modules/typescript/lib'
 
       local servers = {
         -- clangd = {},
@@ -556,15 +558,18 @@ require('lazy').setup({
         -- https://github.com/vuejs/language-tools?tab=readme-ov-file#community-integration
 
         tsserver = {
-          init_options = {
-            plugins = {
-              {
-                name = '@vue/typescript-plugin',
-                location = vue_language_server_path,
-                languages = { 'vue' },
-              },
-            },
-          },
+          -- init_options = {
+          --   plugins = {
+          --     {
+          --       name = '@vue/typescript-plugin',
+          --       location = vue_language_server_path,
+          --       languages = { 'vue' },
+          --     },
+          --   },
+          --   tsserver = {
+          --     path = tsdk,
+          --   },
+          -- },
           -- filetypes = {
           --   'javascript',
           --   'javascriptreact',
@@ -572,17 +577,16 @@ require('lazy').setup({
           --   'typescript',
           --   'typescriptreact',
           --   'typescript.tsx',
-          --   'vue'
+          --   'vue',
           -- },
         },
-        volar = {
-          init_options = {
-            vue = {
-              hybridMode = false,
-            },
-          },
-        },
-
+        -- volar = {
+        --   init_options = {
+        --     vue = {
+        --       hybridMode = false,
+        --     },
+        --   },
+        -- },
         lua_ls = {
           -- cmd = {...},
           -- filetypes = { ...},
@@ -614,6 +618,11 @@ require('lazy').setup({
         'stylua',
         'prettier',
         'prettierd',
+        {
+          'volar',
+          version = '1.8.0-patch.1',
+          auto_update = false,
+        },
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -666,6 +675,8 @@ require('lazy').setup({
   --       -- You can use a sub-list to tell conform to run *until* a formatter
   --       -- is found.
   --       javascript = { { 'prettierd', 'prettier' } },
+  --       vue = { { 'prettierd', 'prettier' } },
+  --       ['*'] = { 'trim_whitespace' },
   --     },
   --   },
   -- },

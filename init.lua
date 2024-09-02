@@ -87,9 +87,13 @@ end
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
+-- Git keymaps
+vim.keymap.set('n', '<leader>g', '<cmd>Git<CR>')
+
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
+vim.opt.hlsearch = true
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagnostic message' })

@@ -6,7 +6,7 @@ local filetypes = {
   'vue',
   'json',
   'css',
-  'lua'
+  'lua',
 }
 
 local function format()
@@ -19,10 +19,10 @@ local function format()
 end
 
 return {
-  'sbdchd/neoformat',
-  config = function()
-    vim.g.neoformat_try_node_exe = 1
-
-    vim.keymap.set('n', '<leader>f', format, { desc = '[F]ormat document' })
-  end,
+  -- 'sbdchd/neoformat',
+  -- config = function()
+  --   vim.g.neoformat_try_node_exe = 1
+  --
+  --   vim.keymap.set('n', '<leader>f', format, { desc = '[F]ormat document' })
+  -- end,
 }

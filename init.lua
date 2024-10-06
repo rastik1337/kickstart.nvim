@@ -614,7 +614,9 @@ require('lazy').setup({
       -- local tsdk = require('mason-registry').get_package('typescript-language-server'):get_install_path() .. '/node_modules/typescript/lib'
 
       local servers = {
-        -- clangd = {},
+        clangd = {},
+        jdtls = {},
+        ['java-language-server'] = {},
         -- gopls = {},
         -- pyright = {},
         -- rust_analyzer = {},
@@ -666,6 +668,8 @@ require('lazy').setup({
         },
         intelephense = {},
         marksman = {},
+        markdown_oxide = {},
+        markdownlint = {},
         tailwindcss = {
           -- settings = {
           --   tailwindCSS = {
@@ -699,7 +703,9 @@ require('lazy').setup({
           },
         },
         taplo = {},
-        markdown_oxide = {},
+        prettier = {},
+        prettierd = {},
+        eslint_d = {},
       }
 
       -- Ensure the servers and tools above are installed
@@ -715,26 +721,6 @@ require('lazy').setup({
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
         'stylua',
-        'prettier',
-        'prettierd',
-        {
-          'eslint',
-          version = '4.8.0',
-          auto_update = false,
-        },
-        {
-          'volar',
-          --   auto_update = false,
-          --   version = '2.0.29',
-          version = '1.8.27',
-          auto_update = false,
-          -- filetypes = { 'typescript', 'javascript', 'typescriptreact', 'javascriptreact', 'vue' },
-          --   init_options = {
-          --     vue = {
-          --       hybridMode = false,
-          --     },
-          --   },
-        },
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 

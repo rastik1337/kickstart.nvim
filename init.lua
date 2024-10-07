@@ -764,7 +764,6 @@ require('lazy').setup({
         javascript = { 'prettierd', 'prettier' },
         json = { 'prettierd', 'prettier' },
         vue = { 'prettierd', 'prettier' },
-        java = { 'google-java-format' },
         cpp = { 'clang-format' },
         c = { 'clang-format' },
       },

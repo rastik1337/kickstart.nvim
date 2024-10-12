@@ -1,6 +1,6 @@
 {
   "VUE_SCRIPT_SETUP": {
-    "prefix": "script",
+    "prefix": "vscript",
     "body": ["<script setup lang=\"ts\">", "</script>\n"],
     "description": "Vue3 Script Setup"
   },
@@ -10,7 +10,7 @@
     "description": "Vue3 Script Setup With Props"
   },
   "VUE_TEMPLATE": {
-    "prefix": "template",
+    "prefix": "vtemplate",
     "body": ["<template>", "</template>"],
     "description": "Vue3 Template"
   },
@@ -26,7 +26,7 @@
   },
   "VUE_EMITS": {
     "prefix": "emits",
-    "body": ["defineEmits<{(e: 'event'): void}>();"],
+    "body": ["defineEmits<{ click: [value: boolean] }>();"],
     "description": "Vue3 Define Emits"
   },
   "VUE_EMITS_CONST": {

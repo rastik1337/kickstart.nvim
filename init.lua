@@ -769,6 +769,7 @@ require('lazy').setup({
         vue = { 'prettierd', 'prettier' },
         cpp = { 'clang-format' },
         c = { 'clang-format' },
+        markdown = { 'prettierd', 'prettier' },
       },
     },
   },

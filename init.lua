@@ -666,8 +666,8 @@ require('lazy').setup({
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
 
-      -- local mason_registry = require 'mason-registry'
-      -- local vue_language_server_path = mason_registry.get_package('vue-language-server'):get_install_path() .. '/node_modules/@vue/language-server'
+      local mason_registry = require 'mason-registry'
+      local vue_language_server_path = mason_registry.get_package('vue-language-server'):get_install_path() .. '/node_modules/@vue/language-server'
       -- local tsdk = require('mason-registry').get_package('typescript-language-server'):get_install_path() .. '/node_modules/typescript/lib'
 
       local servers = {
@@ -687,40 +687,30 @@ require('lazy').setup({
         -- https://github.com/vuejs/language-tools?tab=readme-ov-file#community-integration
 
         ts_ls = {
-          -- init_options = {
-          --   plugins = {
-          --     {
-          --       name = '@vue/typescript-plugin',
-          --       location = vue_language_server_path,
-          --       languages = { 'vue' },
-          --     },
-          --   },
-          --   ts_ls = {
-          --     path = tsdk,
-          --   },
-          -- },
-          -- filetypes = {
-          --   'javascript',
-          --   'javascriptreact',
-          --   'javascript.jsx',
-          --   'typescript',
-          --   'typescriptreact',
-          --   'typescript.tsx',
-          --   'vue',
-          -- },
-          filetypes = { 'none' },
+          -- filetypes = { 'none' },
+          init_options = {
+            plugins = {
+              {
+                name = '@vue/typescript-plugin',
+                location = vue_language_server_path,
+                languages = { 'vue' },
+              },
+            },
+            -- ts_ls = {
+            --   path = tsdk,
+            -- },
+          },
         },
         volar = {
-          --   auto_update = false,
-          --   version = '2.0.29',
-          version = '1.8.27',
+          -- version = '1.8.27',
+          -- filetypes = { 'typescript', 'javascript', 'typescriptreact', 'javascriptreact', 'vue' },
+          version = '2.2.2',
           auto_update = false,
-          filetypes = { 'typescript', 'javascript', 'typescriptreact', 'javascriptreact', 'vue' },
-          --   init_options = {
-          --     vue = {
-          --       hybridMode = false,
-          --     },
-          --   },
+          init_options = {
+            vue = {
+              hybridMode = false,
+            },
+          },
         },
         intelephense = {},
         marksman = {},

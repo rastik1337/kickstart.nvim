@@ -687,7 +687,6 @@ require('lazy').setup({
         -- https://github.com/vuejs/language-tools?tab=readme-ov-file#community-integration
 
         ts_ls = {
-          -- filetypes = { 'none' },
           init_options = {
             plugins = {
               {
@@ -700,17 +699,17 @@ require('lazy').setup({
             --   path = tsdk,
             -- },
           },
+          filetypes = { 'typescript', 'javascript', 'typescriptreact', 'javascriptreact', 'vue' },
         },
         volar = {
           -- version = '1.8.27',
+          version = '2.2.4',
           -- filetypes = { 'typescript', 'javascript', 'typescriptreact', 'javascriptreact', 'vue' },
-          version = '2.2.2',
-          auto_update = false,
-          init_options = {
-            vue = {
-              hybridMode = false,
-            },
-          },
+          -- init_options = {
+          --   vue = {
+          --     hybridMode = false,
+          --   },
+          -- },
         },
         intelephense = {},
         marksman = {},

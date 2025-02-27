@@ -695,22 +695,10 @@ require('lazy').setup({
                 languages = { 'vue' },
               },
             },
-            -- ts_ls = {
-            --   path = tsdk,
-            -- },
           },
           filetypes = { 'typescript', 'javascript', 'typescriptreact', 'javascriptreact', 'vue' },
         },
-        volar = {
-          -- version = '1.8.27',
-          version = '2.2.4',
-          -- filetypes = { 'typescript', 'javascript', 'typescriptreact', 'javascriptreact', 'vue' },
-          -- init_options = {
-          --   vue = {
-          --     hybridMode = false,
-          --   },
-          -- },
-        },
+        volar = {},
         markdown_oxide = {},
         markdownlint = {},
         tailwindcss = {

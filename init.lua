@@ -711,8 +711,6 @@ require('lazy').setup({
           --   },
           -- },
         },
-        intelephense = {},
-        marksman = {},
         markdown_oxide = {},
         markdownlint = {},
         tailwindcss = {
@@ -748,7 +746,6 @@ require('lazy').setup({
           },
         },
         taplo = {},
-        prettier = {},
         prettierd = {},
         ['eslint-lsp'] = {},
       }

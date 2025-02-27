@@ -527,7 +527,7 @@ require('lazy').setup({
           -- Jump to the definition of the word under your cursor.
           --  This is where a variable was first declared, or where a function is defined, etc.
           --  To jump back, press <C-t>.
-          map('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
+          map('gd', require('custom.functions.gd').go_to_definition, '[G]oto [D]efinition')
 
           -- References keymaps
           map('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')

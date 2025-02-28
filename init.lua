@@ -89,7 +89,7 @@ end
 --  See `:help vim.keymap.set()`
 
 -- Git keymaps
-vim.keymap.set('n', '<leader>g', '<cmd>Neogit cwd=%:p:h kind=split_below_all<CR>', { desc = '[G]it' })
+vim.keymap.set('n', '<leader>g', '<cmd>Neogit cwd=%:p:h<CR>', { desc = '[G]it' })
 
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`

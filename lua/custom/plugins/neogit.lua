@@ -6,4 +6,13 @@ return {
     'nvim-telescope/telescope.nvim',
   },
   config = true,
+  opts = {
+    graph_style = 'unicode',
+    kind = 'split_below_all',
+    mappings = {
+      status = {
+        ['='] = 'Toggle',
+      },
+    },
+  },
 }

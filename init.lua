@@ -146,6 +146,7 @@ vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower win
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 vim.keymap.set('n', '<leader>.', '<C-w>>', { desc = 'Increase window width' })
 vim.keymap.set('n', '<leader>,', '<C-w><', { desc = 'Decrease window width' })
+vim.keymap.set('n', '<leader>ct', '<cmd>tabc<CR>', { desc = '[C]lose [T]ab' })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`

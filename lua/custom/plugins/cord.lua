@@ -12,5 +12,8 @@ return {
       -- theme = 'catppuccin',
       swap_icons = true,
     },
+    timestamp = {
+      reset_on_idle = true,
+    },
   },
 }

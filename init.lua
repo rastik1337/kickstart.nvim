@@ -737,6 +737,7 @@ require('lazy').setup({
         taplo = {},
         prettierd = {},
         ['eslint-lsp'] = {},
+        ['html-lsp'] = {},
       }
 
       -- Ensure the servers and tools above are installed

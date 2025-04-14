@@ -802,6 +802,7 @@ require('lazy').setup({
         cpp = { 'clang-format' },
         c = { 'clang-format' },
         markdown = { 'prettierd' },
+        css = { 'prettierd' },
       },
     },
   },

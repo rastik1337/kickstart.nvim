@@ -973,6 +973,17 @@ require('lazy').setup({
 
       -- ... and there is more!
       --  Check out: https://github.com/echasnovski/mini.nvim
+      require('mini.diff').setup {
+        mappings = {
+          apply = '',
+          reset = '',
+          textobject = '',
+          goto_first = '',
+          goto_prev = '',
+          goto_next = '',
+          goto_last = '',
+        },
+      }
     end,
   },
   { -- Highlight, edit, and navigate code

@@ -16,6 +16,7 @@ return {
     },
     commit_editor = {
       spell_check = false,
+      staged_diff_split_kind = 'auto',
     },
   },
 }

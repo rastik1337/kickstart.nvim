@@ -5,7 +5,13 @@ return {
     'nvim-lua/plenary.nvim',
     'nvim-treesitter/nvim-treesitter',
   },
-  opts = {},
+  opts = {
+    display = {
+      diff = {
+        provider = 'mini_diff',
+      },
+    },
+  },
   init = function()
     vim.keymap.set({ 'n', 'v' }, '<C-a>', '<cmd>CodeCompanionActions<cr>', { noremap = true, silent = true })
     vim.keymap.set({ 'n', 'v' }, '<leader>a', '<cmd>CodeCompanionChat Toggle<cr>', { noremap = true, silent = true })

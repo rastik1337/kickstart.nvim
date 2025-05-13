@@ -14,5 +14,8 @@ return {
         ['='] = 'Toggle',
       },
     },
+    commit_editor = {
+      spell_check = false,
+    },
   },
 }

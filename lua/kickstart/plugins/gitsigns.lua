@@ -6,6 +6,9 @@ return {
   {
     'lewis6991/gitsigns.nvim',
     opts = {
+      preview_config = {
+        border = 'rounded',
+      },
       on_attach = function(bufnr)
         local gitsigns = require 'gitsigns'
 
@@ -44,7 +47,8 @@ return {
         map('n', '<leader>hs', gitsigns.stage_hunk, { desc = 'git [s]tage hunk' })
         map('n', '<leader>hr', gitsigns.reset_hunk, { desc = 'git [r]eset hunk' })
         map('n', '<leader>hS', gitsigns.stage_buffer, { desc = 'git [S]tage buffer' })
-        map('n', '<leader>hu', gitsigns.undo_stage_hunk, { desc = 'git [u]ndo stage hunk' })
+        -- deprecated
+        -- map('n', '<leader>hu', gitsigns.undo_stage_hunk, { desc = 'git [u]ndo stage hunk' })
         map('n', '<leader>hR', gitsigns.reset_buffer, { desc = 'git [R]eset buffer' })
         map('n', '<leader>hp', gitsigns.preview_hunk, { desc = 'git [p]review hunk' })
         map('n', '<leader>hip', gitsigns.preview_hunk_inline, { desc = 'git [i]nline hunk [p]review' })

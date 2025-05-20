@@ -5,6 +5,7 @@ return {
   'vyfor/cord.nvim',
   build = ':Cord update',
   opts = {
+    enabled = false,
     log_level = vim.log.levels.WARN,
     editor = {
       client = '1063219055265337455',

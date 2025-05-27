@@ -752,7 +752,7 @@ require('lazy').setup({
         },
         taplo = {},
         prettierd = {},
-        ['eslint-lsp'] = {},
+        eslint = {},
         ['html-lsp'] = {},
       }
 
